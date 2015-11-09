@@ -82,7 +82,9 @@ canvas{
     
     for(var x=1; x<pixelmap.getWidth()-1; x++){
       for(var y=1; y<pixelmap.getHeight()-1; y++){
-        // console.log(pixelmap.getCoordinate(x, y))
+        var gradientVector = CoordinateToGradientVector(pixelmap, x, y);
+        var magnitude = gradientVector.getMagnitude();
+        if(magnitude > 10) ctx.fillRect(x, y, 1, 1);
       }
     }
     
@@ -90,6 +92,31 @@ canvas{
   function ExtractPixelData(canvas){
     var ctx = canvas.getContext('2d');
     return ctx.getImageData(0, 0, canvas.width, canvas.height);
+  }
+  function CoordinateToGradientVector(pixelmap, x, y){
+    var origin = pixelmap.getCoordinate(x, y);
+    var resultVector = new Vector();
+    
+    for(var dx=-1; dx<=1; dx++){
+      for(var dy=-1; dy<=1; dy++){
+        if(dy === 0 && dx === 0) continue;
+        var neighbor = pixelmap.getCoordinate(x + dx, y + dy);
+        var dist = GetColorDistance(origin, neighbor);
+        var angle = Math.atan2(dy, dx);
+        var vector = new Vector(angle, dist);
+        resultVector = resultVector.add(vector);
+      }
+    }
+    
+    resultVector = resultVector.scalarDivide(8);
+    return resultVector;
+  }
+  function GetColorDistance(color1, color2){
+    return Math.sqrt(
+      Math.pow(color1.r - color2.r, 2) +
+      Math.pow(color1.g - color2.g, 2) +
+      Math.pow(color1.b - color2.b, 2)
+    );
   }
   
   function PixelMap(){
@@ -134,10 +161,10 @@ canvas{
       
       var data = imagedata.data;
       for(var i=0; i<data.length; i+=4){
-        var r = data[0];
-        var g = data[1];
-        var b = data[2];
-        var a = data[3];
+        var r = data[i + 0];
+        var g = data[i + 1];
+        var b = data[i + 2];
+        var a = data[i + 3];
         var color = {r:r, g:g, b:b, a:a};
         
         var pixelIndex = i / 4;
@@ -167,6 +194,13 @@ canvas{
     self.getStartPoint = GetStartPoint;
     self.getEndPoint = GetEndPoint;
     
+    self.add = Add;
+    self.subtract = Subtract;
+    self.scalarAdd = ScalarAdd;
+    self.scalarSubtract = ScalarSubtract;
+    self.scalarMultiply = ScalarMultiply;
+    self.scalarDivide = ScalarDivide;
+    
     
     function GetMagnitude(){
       return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
@@ -182,6 +216,29 @@ canvas{
       return { x:x2, y:y2 };
     }
     
+    function Add(vector){
+      var vectorEnd = vector.getEndPoint();
+      var vectorStart = vector.getStartPoint();
+      var newx = x2 + vectorEnd.x - vectorStart.x;
+      var newy = y2 + vectorEnd.y - vectorStart.y;
+      return new Vector(x1, y1, newx, newy);
+    }
+    function Subtract(vector){
+      return Add(ScalarMultiply(-1));
+    }
+    function ScalarAdd(n){
+      return new Vector(x1 + n, y1 + n, x2 + n, y2 + n);
+    }
+    function ScalarSubtract(n){
+      return ScalarAdd(-n);
+    }
+    function ScalarMultiply(n){
+      return new Vector(x1 * n, y1 * n, x2 * n, y2 * n);
+    }
+    function ScalarDivide(n){
+      return ScalarMultiply(1/n);
+    }
+    
     
     (function Constructor(){
       x1 = 0;
@@ -190,8 +247,10 @@ canvas{
       y2 = 0;
       
       if(arguments.length === 2){
-        x2 = arguments[0];
-        y2 = arguments[1];
+        var angle = arguments[0];
+        var magnitude = arguments[1];
+        x2 = Math.cos(angle) * magnitude;
+        y2 = Math.sin(angle) * magnitude;
       }else if(arguments.length === 4){
         x1 = arguments[0];
         y1 = arguments[1];
