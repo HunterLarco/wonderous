@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<style>
+
+body{
+  margin:0px;
+  padding:0px;
+}
+
+canvas{
+  background:rgb(17,17,17);
+  
+  width:100%;
+  height:100%;
+}
+
+</style>
+<html>
+<head>
+
+<title></title>
+
+<meta charset="utf-8" />
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="pinterest" content="nopin">
+
+<meta content="minimum-scale=1.0, width=device-width, maximum-scale=1, user-scalable=no" name="viewport"/>
+
+<script src='player.js'></script>
+
+</head>
+<body>
+
+
+<canvas></canvas>
+
+
+<script type='text/javascript'>
+(function(){
+  
+  var canvas, ctx;
+  var width, height;
+	
+	window.onload = Init;
+	
+  function Init(){
+    LoadCanvas();
+    Render();
+  }
+  
+  function LoadCanvas(){
+    canvas = document.querySelector('canvas');
+    ctx = canvas.getContext('2d')
+    ResizeCanvas();
+    window.addEventListener('resize', ResizeCanvas);
+  }
+  function ResizeCanvas(){
+    width = canvas.width = window.innerWidth*2;
+    height = canvas.height = window.innerHeight*2;
+  }
+  
+  function Render(){
+    requestAnimationFrame(Render);
+    ctx.clearRect(0, 0, width, height);
+    
+    ctx.strokeStyle = 'rgb(255,255,255)';
+    ctx.beginPath();
+    
+    for(var i=0; i<1000; i++){
+      var start;
+      var end;
+      var dist;
+      
+      do{
+        start = RandomChoice(PLAYER);
+        end = RandomChoice(PLAYER);
+        dist = GetDistance(start, end);
+      }while(dist > 14);
+      
+      ctx.moveTo(start.x, start.y);
+      ctx.lineTo(end.x, end.y);
+    }
+    
+    ctx.stroke();
+  }
+  function RandomChoice(arr){
+    return arr[Math.floor(Math.random() * arr.length)];
+  }
+  function GetDistance(p1, p2){
+    return Math.sqrt(Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2));
+  }
+  
+})();
+</script>
+</body>
+</html>

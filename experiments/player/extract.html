@@ -92,6 +92,12 @@ canvas{
       ctx.fillRect(startpoint.x + pixelmap.getWidth(), startpoint.y, 1, 1);
     }
     
+    console.log(JSON.stringify(edgevectors.map(function(value){
+      return value.getStartPoint();
+    })))
+    
+    return
+    
     var filterededges = FilterEdgeVectors(edgevectors);
     
     ctx.strokeText(filterededges.length, pixelmap.getWidth() * 2 + 10, 20)
