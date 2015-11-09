@@ -80,6 +80,12 @@ canvas{
     var imagedata = ExtractPixelData(imagecanvas);
     var pixelmap = new PixelMap(imagedata);
     
+    for(var x=1; x<pixelmap.getWidth()-1; x++){
+      for(var y=1; y<pixelmap.getHeight()-1; y++){
+        // console.log(pixelmap.getCoordinate(x, y))
+      }
+    }
+    
   }
   function ExtractPixelData(canvas){
     var ctx = canvas.getContext('2d');
@@ -134,10 +140,63 @@ canvas{
         var a = data[3];
         var color = {r:r, g:g, b:b, a:a};
         
-        var y = Math.floor(i / imagedata.width);
-        var x = i - imagedata.width * y;
+        var pixelIndex = i / 4;
+        var y = Math.floor(pixelIndex / imagedata.width);
+        var x = pixelIndex - imagedata.width * y;
         
         SetCoordinate(x, y, color);
+      }
+      
+    }).apply(self, arguments);
+  }
+  
+  function Vector(){
+    var self = this;
+    var undefined;
+    
+    
+    var x1;
+    var y1;
+    var x2;
+    var y2;
+    
+    
+    self.getMagnitude = GetMagnitude;
+    self.getAngle = GetAngle;
+    
+    self.getStartPoint = GetStartPoint;
+    self.getEndPoint = GetEndPoint;
+    
+    
+    function GetMagnitude(){
+      return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+    }
+    function GetAngle(){
+      return Math.atan2(y2 - y1, x2 - x1);
+    }
+    
+    function GetStartPoint(){
+      return { x:x1, y:y1 };
+    }
+    function GetEndPoint(){
+      return { x:x2, y:y2 };
+    }
+    
+    
+    (function Constructor(){
+      x1 = 0;
+      y1 = 0;
+      x2 = 0;
+      y2 = 0;
+      
+      if(arguments.length === 2){
+        x2 = arguments[0];
+        y2 = arguments[1];
+      }else if(arguments.length === 4){
+        x1 = arguments[0];
+        y1 = arguments[1];
+        x2 = arguments[2];
+        y2 = arguments[3];
       }
     }).apply(self, arguments);
   }
