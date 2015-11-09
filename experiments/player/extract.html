@@ -61,7 +61,7 @@ canvas{
   
   function LoadImage(callback){
     var image = new Image();
-    image.src = 'girl.png';
+    image.src = 'body.png';
     image.addEventListener('load', function(){
       WriteImage(image);
       callback();
@@ -79,21 +79,30 @@ canvas{
   function BeginAnalysis(){
     // draw image for comparison
     ctx.drawImage(imagecanvas, 0, 0);
+    ctx.fillStyle = 'rgb(255,255,255)';
+    ctx.strokeStyle = 'rgb(255,255,255)';
     
     var imagedata = ExtractPixelData(imagecanvas);
     var pixelmap = new PixelMap(imagedata);
     var edgevectors = FormEdgVectors(pixelmap, 3);
     
-    ctx.fillStyle = 'rgb(255,255,255)';
-    ctx.strokeStyle = 'rgb(255,255,255)';
-    
     ctx.strokeText(edgevectors.length, pixelmap.getWidth() + 10, 20)
-    
     for(var i=0,vector; vector=edgevectors[i++];){
       var startpoint = vector.getStartPoint();
       ctx.fillRect(startpoint.x + pixelmap.getWidth(), startpoint.y, 1, 1);
     }
     
+    var filterededges = FilterEdgeVectors(edgevectors);
+    
+    ctx.strokeText(filterededges.length, pixelmap.getWidth() * 2 + 10, 20)
+    for(var i=0,vector; vector=filterededges[i++];){
+      var startpoint = vector.getStartPoint();
+      ctx.fillRect(startpoint.x + pixelmap.getWidth() * 2, startpoint.y, 1, 1);
+    }
+    
+    console.log(JSON.stringify(filterededges.map(function(value){
+      return value.getStartPoint();
+    })))
   }
   function ExtractPixelData(canvas){
     var ctx = canvas.getContext('2d');
@@ -136,6 +145,42 @@ canvas{
     }
     
     return vectors;
+  }
+  function FilterEdgeVectors(edges){
+    var filtered = [];
+    
+    for(var i=edges.length,edge; edge=edges[--i];){
+      var proximateEdges = FindProximateEdges(edges, edge, 2);
+      var flag = false;
+      for(var j=0,proximateEdge; proximateEdge=proximateEdges[j++];){
+        var angleDiff = SmallestAngleBetween(edge, proximateEdge);
+        if(angleDiff > 20 / 180 * Math.PI && angleDiff < Math.PI/4) flag = true;
+      }
+      if(flag) filtered.push(edge);
+    }
+    
+    return filtered;
+  }
+  function FindProximateEdges(edges, originaledge, radius){
+    var proximate = [];
+    
+    var point = originaledge.getStartPoint();
+    for(var i=edges.length,edge; edge=edges[--i];){
+      var edgePoint = edge.getStartPoint();
+      var dist = Math.sqrt(Math.pow(point.x - edgePoint.x, 2) + Math.pow(point.y - edgePoint.y, 2));
+      if (dist < radius) proximate.push(edge);
+    }
+    
+    return proximate;
+  }
+  function SmallestAngleBetween(vector1, vector2){
+    var angle1 = vector1.getAngle();
+    var angle2 = vector2.getAngle();
+    var maxang = Math.max(angle1, angle2);
+    var minang = Math.min(angle1, angle2);
+    var case1 = maxang - minang;
+    var case2 = minang + Math.PI * 2 - maxang;
+    return Math.min(case1, case2);
   }
   
   function PixelMap(){
