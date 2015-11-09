@@ -8,6 +8,9 @@ body{
 
 canvas{
   background:rgb(17,17,17);
+  
+  width:100%;
+  height:100%;
 }
 
 </style>
@@ -52,13 +55,13 @@ canvas{
     window.addEventListener('resize', ResizeCanvas);
   }
   function ResizeCanvas(){
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
+    width = canvas.width = window.innerWidth*2;
+    height = canvas.height = window.innerHeight*2;
   }
   
   function LoadImage(callback){
     var image = new Image();
-    image.src = 'room.jpg';
+    image.src = 'girl.png';
     image.addEventListener('load', function(){
       WriteImage(image);
       callback();
@@ -79,15 +82,16 @@ canvas{
     
     var imagedata = ExtractPixelData(imagecanvas);
     var pixelmap = new PixelMap(imagedata);
+    var edgevectors = FormEdgVectors(pixelmap, 3);
     
     ctx.fillStyle = 'rgb(255,255,255)';
+    ctx.strokeStyle = 'rgb(255,255,255)';
     
-    for(var x=1; x<pixelmap.getWidth()-1; x++){
-      for(var y=1; y<pixelmap.getHeight()-1; y++){
-        var gradientVector = CoordinateToGradientVector(pixelmap, x, y);
-        var magnitude = gradientVector.getMagnitude();
-        if(magnitude > 1) ctx.fillRect(x + pixelmap.getWidth(), y, 1, 1);
-      }
+    ctx.strokeText(edgevectors.length, pixelmap.getWidth() + 10, 20)
+    
+    for(var i=0,vector; vector=edgevectors[i++];){
+      var startpoint = vector.getStartPoint();
+      ctx.fillRect(startpoint.x + pixelmap.getWidth(), startpoint.y, 1, 1);
     }
     
   }
@@ -110,7 +114,7 @@ canvas{
       }
     }
     
-    resultVector = resultVector.scalarDivide(8);
+    resultVector = resultVector.scalarDivide(8).translate(x, y);
     return resultVector;
   }
   function GetColorDistance(color1, color2){
@@ -119,6 +123,19 @@ canvas{
       Math.pow(color1.g - color2.g, 2) +
       Math.pow(color1.b - color2.b, 2)
     );
+  }
+  function FormEdgVectors(pixelmap, minmag){
+    var vectors = [];
+    
+    for(var x=1; x<pixelmap.getWidth()-1; x++){
+      for(var y=1; y<pixelmap.getHeight()-1; y++){
+        var gradientVector = CoordinateToGradientVector(pixelmap, x, y);
+        var magnitude = gradientVector.getMagnitude();
+        if(magnitude > minmag) vectors.push(gradientVector);
+      }
+    }
+    
+    return vectors;
   }
   
   function PixelMap(){
@@ -202,6 +219,7 @@ canvas{
     self.scalarSubtract = ScalarSubtract;
     self.scalarMultiply = ScalarMultiply;
     self.scalarDivide = ScalarDivide;
+    self.translate = Translate;
     
     
     function GetMagnitude(){
@@ -240,6 +258,9 @@ canvas{
     function ScalarDivide(n){
       return ScalarMultiply(1/n);
     }
+    function Translate(dx, dy){
+      return new Vector(x1 + dx, y1 + dy, x2 + dx, y2 + dy);
+    }
     
     
     (function Constructor(){
@@ -261,6 +282,8 @@ canvas{
       }
     }).apply(self, arguments);
   }
+  
+  window.Vector = Vector;
   
 })();
 </script>
