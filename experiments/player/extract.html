@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<style>
+
+body{
+  margin:0px;
+  padding:0px;
+}
+
+canvas{
+  background:rgb(17,17,17);
+}
+
+</style>
+<html>
+<head>
+
+<title></title>
+
+<meta charset="utf-8" />
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="pinterest" content="nopin">
+
+<meta content="minimum-scale=1.0, width=device-width, maximum-scale=1, user-scalable=no" name="viewport"/>
+
+</head>
+<body>
+
+
+<canvas></canvas>
+
+
+<script type='text/javascript'>
+(function(){
+  
+  var canvas, ctx;
+  var width, height;
+  var imagecanvas;
+	
+	window.onload = Init;
+	
+  function Init(){
+    LoadCanvas();
+    LoadImage(BeginAnalysis);
+  }
+  
+  function LoadCanvas(){
+    canvas = document.querySelector('canvas');
+    ctx = canvas.getContext('2d')
+    ResizeCanvas();
+    window.addEventListener('resize', ResizeCanvas);
+  }
+  function ResizeCanvas(){
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+  }
+  
+  function LoadImage(callback){
+    var image = new Image();
+    image.src = 'girl.png';
+    image.addEventListener('load', function(){
+      WriteImage(image);
+      callback();
+    });
+  }
+  function WriteImage(image){
+    imagecanvas = document.createElement('canvas');
+    imagecanvas.width = image.width;
+    imagecanvas.height = image.height;
+    
+    var ctx = imagecanvas.getContext('2d');
+    ctx.drawImage(image, 0, 0);
+  }
+  
+  function BeginAnalysis(){
+    // draw image for comparison
+    ctx.drawImage(imagecanvas, 0, 0);
+    
+    var imagedata = ExtractPixelData(imagecanvas);
+    var pixelmap = new PixelMap(imagedata);
+    
+  }
+  function ExtractPixelData(canvas){
+    var ctx = canvas.getContext('2d');
+    return ctx.getImageData(0, 0, canvas.width, canvas.height);
+  }
+  
+  function PixelMap(){
+    var self = this;
+    var undefined;
+    
+    
+    var imagedata;
+    var map = {};
+    
+    
+    self.getCoordinate = GetCoordinate;
+    
+    self.getWidth = GetWidth;
+    self.getHeight = GetHeight;
+    
+    
+    function FormCoordinate(x, y){
+      return x + ':' + y;
+    }
+    function GetCoordinate(x, y){
+      var coordinate = FormCoordinate(x, y);
+      var color = map[coordinate];
+      if (color === undefined) return null;
+      return color;
+    }
+    function SetCoordinate(x, y, color){
+      var coordinate = FormCoordinate(x, y);
+      map[coordinate] = color;
+    }
+    
+    function GetWidth(){
+      return imagedata.width;
+    }
+    function GetHeight(){
+      return imagedata.height;
+    }
+    
+    
+    (function Constructor(_imagedata){
+      imagedata = _imagedata;
+      
+      var data = imagedata.data;
+      for(var i=0; i<data.length; i+=4){
+        var r = data[0];
+        var g = data[1];
+        var b = data[2];
+        var a = data[3];
+        var color = {r:r, g:g, b:b, a:a};
+        
+        var y = Math.floor(i / imagedata.width);
+        var x = i - imagedata.width * y;
+        
+        SetCoordinate(x, y, color);
+      }
+    }).apply(self, arguments);
+  }
+  
+})();
+</script>
+</body>
+</html>
