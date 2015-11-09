@@ -58,7 +58,7 @@ canvas{
   
   function LoadImage(callback){
     var image = new Image();
-    image.src = 'girl.png';
+    image.src = 'room.jpg';
     image.addEventListener('load', function(){
       WriteImage(image);
       callback();
@@ -80,11 +80,13 @@ canvas{
     var imagedata = ExtractPixelData(imagecanvas);
     var pixelmap = new PixelMap(imagedata);
     
+    ctx.fillStyle = 'rgb(255,255,255)';
+    
     for(var x=1; x<pixelmap.getWidth()-1; x++){
       for(var y=1; y<pixelmap.getHeight()-1; y++){
         var gradientVector = CoordinateToGradientVector(pixelmap, x, y);
         var magnitude = gradientVector.getMagnitude();
-        if(magnitude > 10) ctx.fillRect(x, y, 1, 1);
+        if(magnitude > 1) ctx.fillRect(x + pixelmap.getWidth(), y, 1, 1);
       }
     }
     
