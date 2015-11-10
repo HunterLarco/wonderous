@@ -1,0 +1,525 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AE6BBA381BF1B4DE00F702F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6BBA371BF1B4DE00F702F3 /* AppDelegate.swift */; };
+		AE6BBA3A1BF1B4DE00F702F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6BBA391BF1B4DE00F702F3 /* ViewController.swift */; };
+		AE6BBA3D1BF1B4DE00F702F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE6BBA3B1BF1B4DE00F702F3 /* Main.storyboard */; };
+		AE6BBA401BF1B4DE00F702F3 /* wonderous.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AE6BBA3E1BF1B4DE00F702F3 /* wonderous.xcdatamodeld */; };
+		AE6BBA421BF1B4DE00F702F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE6BBA411BF1B4DE00F702F3 /* Assets.xcassets */; };
+		AE6BBA451BF1B4DE00F702F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE6BBA431BF1B4DE00F702F3 /* LaunchScreen.storyboard */; };
+		AE6BBA501BF1B4DE00F702F3 /* wonderousTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6BBA4F1BF1B4DE00F702F3 /* wonderousTests.swift */; };
+		AE6BBA5B1BF1B4DE00F702F3 /* wonderousUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6BBA5A1BF1B4DE00F702F3 /* wonderousUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AE6BBA4C1BF1B4DE00F702F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE6BBA2C1BF1B4DE00F702F3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AE6BBA331BF1B4DE00F702F3;
+			remoteInfo = wonderous;
+		};
+		AE6BBA571BF1B4DE00F702F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE6BBA2C1BF1B4DE00F702F3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AE6BBA331BF1B4DE00F702F3;
+			remoteInfo = wonderous;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AE6BBA341BF1B4DE00F702F3 /* wonderous.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wonderous.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE6BBA371BF1B4DE00F702F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AE6BBA391BF1B4DE00F702F3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AE6BBA3C1BF1B4DE00F702F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AE6BBA3F1BF1B4DE00F702F3 /* wonderous.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = wonderous.xcdatamodel; sourceTree = "<group>"; };
+		AE6BBA411BF1B4DE00F702F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AE6BBA441BF1B4DE00F702F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AE6BBA461BF1B4DE00F702F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE6BBA4B1BF1B4DE00F702F3 /* wonderousTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wonderousTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE6BBA4F1BF1B4DE00F702F3 /* wonderousTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wonderousTests.swift; sourceTree = "<group>"; };
+		AE6BBA511BF1B4DE00F702F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE6BBA561BF1B4DE00F702F3 /* wonderousUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wonderousUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE6BBA5A1BF1B4DE00F702F3 /* wonderousUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wonderousUITests.swift; sourceTree = "<group>"; };
+		AE6BBA5C1BF1B4DE00F702F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AE6BBA311BF1B4DE00F702F3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE6BBA481BF1B4DE00F702F3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE6BBA531BF1B4DE00F702F3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AE6BBA2B1BF1B4DE00F702F3 = {
+			isa = PBXGroup;
+			children = (
+				AE6BBA361BF1B4DE00F702F3 /* wonderous */,
+				AE6BBA4E1BF1B4DE00F702F3 /* wonderousTests */,
+				AE6BBA591BF1B4DE00F702F3 /* wonderousUITests */,
+				AE6BBA351BF1B4DE00F702F3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AE6BBA351BF1B4DE00F702F3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AE6BBA341BF1B4DE00F702F3 /* wonderous.app */,
+				AE6BBA4B1BF1B4DE00F702F3 /* wonderousTests.xctest */,
+				AE6BBA561BF1B4DE00F702F3 /* wonderousUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AE6BBA361BF1B4DE00F702F3 /* wonderous */ = {
+			isa = PBXGroup;
+			children = (
+				AE6BBA371BF1B4DE00F702F3 /* AppDelegate.swift */,
+				AE6BBA391BF1B4DE00F702F3 /* ViewController.swift */,
+				AE6BBA3B1BF1B4DE00F702F3 /* Main.storyboard */,
+				AE6BBA411BF1B4DE00F702F3 /* Assets.xcassets */,
+				AE6BBA431BF1B4DE00F702F3 /* LaunchScreen.storyboard */,
+				AE6BBA461BF1B4DE00F702F3 /* Info.plist */,
+				AE6BBA3E1BF1B4DE00F702F3 /* wonderous.xcdatamodeld */,
+			);
+			path = wonderous;
+			sourceTree = "<group>";
+		};
+		AE6BBA4E1BF1B4DE00F702F3 /* wonderousTests */ = {
+			isa = PBXGroup;
+			children = (
+				AE6BBA4F1BF1B4DE00F702F3 /* wonderousTests.swift */,
+				AE6BBA511BF1B4DE00F702F3 /* Info.plist */,
+			);
+			path = wonderousTests;
+			sourceTree = "<group>";
+		};
+		AE6BBA591BF1B4DE00F702F3 /* wonderousUITests */ = {
+			isa = PBXGroup;
+			children = (
+				AE6BBA5A1BF1B4DE00F702F3 /* wonderousUITests.swift */,
+				AE6BBA5C1BF1B4DE00F702F3 /* Info.plist */,
+			);
+			path = wonderousUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AE6BBA331BF1B4DE00F702F3 /* wonderous */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE6BBA5F1BF1B4DE00F702F3 /* Build configuration list for PBXNativeTarget "wonderous" */;
+			buildPhases = (
+				AE6BBA301BF1B4DE00F702F3 /* Sources */,
+				AE6BBA311BF1B4DE00F702F3 /* Frameworks */,
+				AE6BBA321BF1B4DE00F702F3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = wonderous;
+			productName = wonderous;
+			productReference = AE6BBA341BF1B4DE00F702F3 /* wonderous.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AE6BBA4A1BF1B4DE00F702F3 /* wonderousTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE6BBA621BF1B4DE00F702F3 /* Build configuration list for PBXNativeTarget "wonderousTests" */;
+			buildPhases = (
+				AE6BBA471BF1B4DE00F702F3 /* Sources */,
+				AE6BBA481BF1B4DE00F702F3 /* Frameworks */,
+				AE6BBA491BF1B4DE00F702F3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AE6BBA4D1BF1B4DE00F702F3 /* PBXTargetDependency */,
+			);
+			name = wonderousTests;
+			productName = wonderousTests;
+			productReference = AE6BBA4B1BF1B4DE00F702F3 /* wonderousTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AE6BBA551BF1B4DE00F702F3 /* wonderousUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE6BBA651BF1B4DE00F702F3 /* Build configuration list for PBXNativeTarget "wonderousUITests" */;
+			buildPhases = (
+				AE6BBA521BF1B4DE00F702F3 /* Sources */,
+				AE6BBA531BF1B4DE00F702F3 /* Frameworks */,
+				AE6BBA541BF1B4DE00F702F3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AE6BBA581BF1B4DE00F702F3 /* PBXTargetDependency */,
+			);
+			name = wonderousUITests;
+			productName = wonderousUITests;
+			productReference = AE6BBA561BF1B4DE00F702F3 /* wonderousUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AE6BBA2C1BF1B4DE00F702F3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = larcolabs;
+				TargetAttributes = {
+					AE6BBA331BF1B4DE00F702F3 = {
+						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = H8UFZ66J97;
+					};
+					AE6BBA4A1BF1B4DE00F702F3 = {
+						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = H8UFZ66J97;
+						TestTargetID = AE6BBA331BF1B4DE00F702F3;
+					};
+					AE6BBA551BF1B4DE00F702F3 = {
+						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = H8UFZ66J97;
+						TestTargetID = AE6BBA331BF1B4DE00F702F3;
+					};
+				};
+			};
+			buildConfigurationList = AE6BBA2F1BF1B4DE00F702F3 /* Build configuration list for PBXProject "wonderous" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AE6BBA2B1BF1B4DE00F702F3;
+			productRefGroup = AE6BBA351BF1B4DE00F702F3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AE6BBA331BF1B4DE00F702F3 /* wonderous */,
+				AE6BBA4A1BF1B4DE00F702F3 /* wonderousTests */,
+				AE6BBA551BF1B4DE00F702F3 /* wonderousUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AE6BBA321BF1B4DE00F702F3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE6BBA451BF1B4DE00F702F3 /* LaunchScreen.storyboard in Resources */,
+				AE6BBA421BF1B4DE00F702F3 /* Assets.xcassets in Resources */,
+				AE6BBA3D1BF1B4DE00F702F3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE6BBA491BF1B4DE00F702F3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE6BBA541BF1B4DE00F702F3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AE6BBA301BF1B4DE00F702F3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE6BBA401BF1B4DE00F702F3 /* wonderous.xcdatamodeld in Sources */,
+				AE6BBA3A1BF1B4DE00F702F3 /* ViewController.swift in Sources */,
+				AE6BBA381BF1B4DE00F702F3 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE6BBA471BF1B4DE00F702F3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE6BBA501BF1B4DE00F702F3 /* wonderousTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE6BBA521BF1B4DE00F702F3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE6BBA5B1BF1B4DE00F702F3 /* wonderousUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AE6BBA4D1BF1B4DE00F702F3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AE6BBA331BF1B4DE00F702F3 /* wonderous */;
+			targetProxy = AE6BBA4C1BF1B4DE00F702F3 /* PBXContainerItemProxy */;
+		};
+		AE6BBA581BF1B4DE00F702F3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AE6BBA331BF1B4DE00F702F3 /* wonderous */;
+			targetProxy = AE6BBA571BF1B4DE00F702F3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AE6BBA3B1BF1B4DE00F702F3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AE6BBA3C1BF1B4DE00F702F3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AE6BBA431BF1B4DE00F702F3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AE6BBA441BF1B4DE00F702F3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AE6BBA5D1BF1B4DE00F702F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AE6BBA5E1BF1B4DE00F702F3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AE6BBA601BF1B4DE00F702F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = wonderous/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.larcolabs.wonderous;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AE6BBA611BF1B4DE00F702F3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = wonderous/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.larcolabs.wonderous;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		AE6BBA631BF1B4DE00F702F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = wonderousTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.larcolabs.wonderousTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/wonderous.app/wonderous";
+			};
+			name = Debug;
+		};
+		AE6BBA641BF1B4DE00F702F3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = wonderousTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.larcolabs.wonderousTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/wonderous.app/wonderous";
+			};
+			name = Release;
+		};
+		AE6BBA661BF1B4DE00F702F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = wonderousUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.larcolabs.wonderousUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = wonderous;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		AE6BBA671BF1B4DE00F702F3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = wonderousUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.larcolabs.wonderousUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = wonderous;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AE6BBA2F1BF1B4DE00F702F3 /* Build configuration list for PBXProject "wonderous" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE6BBA5D1BF1B4DE00F702F3 /* Debug */,
+				AE6BBA5E1BF1B4DE00F702F3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE6BBA5F1BF1B4DE00F702F3 /* Build configuration list for PBXNativeTarget "wonderous" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE6BBA601BF1B4DE00F702F3 /* Debug */,
+				AE6BBA611BF1B4DE00F702F3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AE6BBA621BF1B4DE00F702F3 /* Build configuration list for PBXNativeTarget "wonderousTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE6BBA631BF1B4DE00F702F3 /* Debug */,
+				AE6BBA641BF1B4DE00F702F3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AE6BBA651BF1B4DE00F702F3 /* Build configuration list for PBXNativeTarget "wonderousUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE6BBA661BF1B4DE00F702F3 /* Debug */,
+				AE6BBA671BF1B4DE00F702F3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		AE6BBA3E1BF1B4DE00F702F3 /* wonderous.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AE6BBA3F1BF1B4DE00F702F3 /* wonderous.xcdatamodel */,
+			);
+			currentVersion = AE6BBA3F1BF1B4DE00F702F3 /* wonderous.xcdatamodel */;
+			path = wonderous.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = AE6BBA2C1BF1B4DE00F702F3 /* Project object */;
+}
