@@ -40,3 +40,14 @@ after the first tap she no longer shows.
 **Paint in Air**
 
 draw on your soroundings and come back later to find them again
+
+**Message**
+
+There are four chapters, each using the same five scenes, but with them a story of humanity is draw.
+
+1. Ascent. The introduction and literal meaning as we ascend into the sky
+2. City in the sky. Buildings, infastructure, growth.
+3. Paradise lost
+4. Rubble
+
+5. Credits
